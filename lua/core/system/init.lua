@@ -1,0 +1,5 @@
+require('core.system.text_parser')
+require('core.system.lsp')
+require('core.system.cmp')
+require('core.system.file_manager')
+require('core.system.fzf_finder')
