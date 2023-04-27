@@ -13,7 +13,6 @@ git clone https://github.com/LuaLS/lua-language-server
 cd lua-language-server
 ./make.sh
 echo 'export PATH="$PATH:/home/$USER/devops/lua-language-server/bin"' > ~/.profile
-
 ```
 
 * Python language
@@ -68,7 +67,7 @@ I make the first release, when I complete the mailstone tasks.
     - [x] gomodifytags
     - [x] gotests
     - [ ] impl
-    - [ ] iferr
+    - [x] iferr
     - [ ] govulncheck
 - [ ] Bash support
 - [ ] Git support

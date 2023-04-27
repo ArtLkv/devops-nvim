@@ -11,11 +11,26 @@ M.urls = {
   -- goplay = 'github.com/haya14busa/goplay/cmd/goplay',
   -- impl = 'github.com/josharian/impl',
   -- dlv = 'github.com/go-delve/delve/cmd/dlv',
-  -- iferr = 'github.com/koron/iferr',
+  iferr = 'github.com/koron/iferr',
   -- staticcheck = 'honnef.co/go/tools/cmd/staticcheck'
 }
 --------------------------------------------
--- Golang Utils
+-- Golang If-Err support
+function M.ifErr()
+  local buffer = vim.fn.wordcount().cursor_bytes
+  local cmd = ('iferr' .. ' -pos ' .. buffer)
+  local data  = vim.fn.systemlist(cmd, vim.fn.bufnr('%'))
+
+  if vim.v.shell_error ~= 0 then
+    vim.notify('command ' .. cmd .. ' exited with code ' .. vim.v.shell_error, 'error')
+    return
+  end
+
+  local pos  = vim.fn.getcurpos()[2]
+  vim.fn.append(pos, data)
+  vim.cmd[[silent normal! j=2j]]
+  vim.fn.setpos('.', pos)
+end
 --------------------------------------------
 -- Golang Tests support
 local function run_test(cmd_args)
