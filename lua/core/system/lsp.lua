@@ -48,25 +48,18 @@ lspconfig.lua_ls.setup({
 })
 ---------------------------------------------
 -- Python LSP
-lspconfig.pyright.setup({
-  on_attach = on_attach,
-  cmd = { 'pyright-langserver', '--stdio' },
-  filetypes = { 'python' },
+lspconfig.pylsp.setup{
   settings = {
-    pyright = {
-      autoImportCompletion = true,
-    },
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = 'openFilesOnly',
-        useLibraryCodeForTypes = true,
-        typeCheckingMode = 'off',
-      },
-    },
-  },
-  single_file_support = true,
-})
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
 --------------------------------------------
 -- Golang LSP
 lspconfig.gopls.setup({

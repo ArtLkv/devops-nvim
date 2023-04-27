@@ -36,7 +36,7 @@ dnf install make gcc patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sq
 pyenv install -l # And choose version
 pyenv install 3.10.4 # Change version
 pyenv global 3.10.4
-python -m pip install pyright
+python -m pip install python-lsp-server
 ```
 
 * Golang language
