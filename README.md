@@ -1,5 +1,7 @@
 # NeoVim configuration for DevOps
 
+!!! MY ENGLISH BAD, IF YOU FOUND THE WORST OR UNCORRENT WORD, PARAGRAPH AND ETC. PLEASE, LET ME KNOW !!!
+
 ## Pre-requirements
 
 * (Optional) Lua LTS
