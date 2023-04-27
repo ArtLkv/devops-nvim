@@ -55,3 +55,45 @@ git clone https://github.com/ArtLkv/devops-nvim.git ~/.config/nvim
 1. Open NeoVim
 2. Run command `:GoInstallDeps`
 
+# Roadmap(1.0.0)
+I make the first release, when I complete the mailstone tasks.
+
+## Mailstone
+- [x] API system
+- [x] Different settings for different programming languages
+- [ ] Golang tools support
+    - [x] gopls
+    - [x] gomodifytags
+    - [x] gotests
+    - [ ] impl
+    - [ ] iferr
+    - [ ] govulncheck
+- [ ] Bash support
+- [ ] Git support
+    - [ ] Fugitive
+    - [ ] GitSigns
+- [ ] Docker support
+- [ ] Terraform support
+- [ ] Ansible support
+- [ ] Yaml support
+- [ ] Protobuf support
+- [x] Language Server Protocols support
+    - [x] Python
+    - [x] Golang
+    - [x] Lua
+## Optional
+- [ ] Add documentation about this configuration
+- [ ] Debugger support
+- [ ] Web support(html, css, js, ts)
+- [x] Comment system
+- [x] Terminal support
+- [ ] Notification system
+    - [x] Modify default neovim notification system
+    - [ ] Add title for notify messages
+- [ ] Change mappings to more comfortable keybindings
+- [ ] Buffer with list of all mappings
+
+# Documentation
+
+* If you want to add the yourself custom command. Read [this](./docs/custom_commands.md), please.
+* If you want read about structure of this configuration. Read [this](./docs/structure.md), please.
