@@ -1,6 +1,7 @@
 local M = {}
 
 local parser = require('core.api.utils.golang.parser')
+local commands = require('core.api.commands.system')
 local extensions = require('core.api.extensions')
 --------------------------------------------
 -- Golang Tools Variables
@@ -18,12 +19,12 @@ function M.impl(fargs)
 
   local receiver_name, receiver, interface =  '', '', ''
   if #fargs == 0 then
-    vim.notify('Usage: `GoImpl f *File io.Reader` or `GoImpl io.Reader` ', 'info')
+    commands.make_notify_message('Example: `GoImpl f *File io.Reader`', 'Usage', 'info')
     return
   elseif #fargs == 1 then
     local args = extensions.split(fargs[1])
     if #args ~= 3 then
-      vim.notify('Usage: `GoImpl f *File io.Reader` or `GoImpl io.Reader`', 'info')
+      commands.make_notify_message('Example: `GoImpl f *File io.Reader`', 'Usage', 'info')
       return
     elseif #args == 3 then
       receiver_name = args[1]
@@ -44,7 +45,7 @@ function M.impl(fargs)
     args = cmd_args,
     on_exit = function(data, retval)
       if retval ~= 0 then
-        vim.notify('Command `impl ' .. unpack(cmd_args) .. '` FAILED with code' .. retval, 'error')
+        commands.make_notify_message('Command `impl` FAILED with code ' .. retval, 'impl', 'error')
         return
       end
       res_data = data:result()
@@ -63,7 +64,7 @@ function M.ifErr()
   local data  = vim.fn.systemlist(cmd, vim.fn.bufnr('%'))
 
   if vim.v.shell_error ~= 0 then
-    vim.notify('command ' .. cmd .. ' exited with code ' .. vim.v.shell_error, 'error')
+    commands.make_notify_message('Command `iferr` FAILED with code ' .. vim.v.shell_error, 'iferr', 'error')
     return
   end
 
@@ -81,10 +82,10 @@ local function run_test(cmd_args)
     args = cmd_args,
     on_exit = function(_, retval)
       if retval ~= 0 then
-        vim.notify('Command `gotests ' .. unpack(cmd_args) .. '` FAILED with code' .. retval, 'error')
+        commands.make_notify_message('Command `gotests` FAILED with code ' .. retval, 'gotests', 'error')
         return
       end
-      vim.notify('Unit test(s) generation SUCCEDED', 'info')
+      commands.make_notify_message('Unit test(s) generation SUCCEDED', 'gotests', 'info')
     end,
   }):start()
 end
@@ -99,7 +100,7 @@ end
 function M.one_function_test(is_parallel)
   local nodes = parser.get_func_at_cursor_position(unpack(vim.api.nvim_win_get_cursor(0)))
   if nodes == nil or nodes.name == nil then
-    vim.notify('Cursor on func/method and execute the command again', 'info')
+    commands.make_notify_message('Put cursor on func/method and execute the command again', 'gotests', 'info')
     return
   end
 
@@ -170,7 +171,7 @@ local function modify_tags(operation, type)
     args = cmd_args,
     on_exit = function(data, retval)
       if retval ~= 0 then
-        vim.notify('Command `gomodifytags ' .. unpack(cmd_args) .. '` FAILED with code' .. retval, 'error')
+        commands.make_notify_message('Command `gomodifytags` FAILED with code ' .. retval, 'gomodifytags', 'error')
         return
       end
       res_data = data:result()
@@ -179,7 +180,7 @@ local function modify_tags(operation, type)
 
   local tagged = vim.json.decode(table.concat(res_data))
   if tagged.errors ~= nil or tagged.lines == nil or tagged['start'] == nil or tagged['start'] == 0 then
-    vim.notify('Failed to set tags ' .. vim.inspect(tagged), 'error')
+    commands.make_notify_message('Failed to set tags ' .. vim.inspect(tagged), 'gomodifytags', 'error')
   end
 
   for index, value in ipairs(tagged.lines) do
@@ -210,10 +211,10 @@ function M.create_module(name)
     args = { 'mod', 'init', name },
     on_exit = function(_, retval)
       if retval ~= 0 then
-        vim.notify('Initializing go module `' .. name .. '` FAILED with code' .. retval, 'error')
+        commands.make_notify_message('Initializing go module `' .. name .. '` FAILED with code ' .. retval, 'Module', 'error')
         return
       end
-      vim.notify('Initializing go module `' .. name .. '` SUCCEDED', 'info')
+      commands.make_notify_message('Initializing go module `' .. name .. '` SUCCEDED', 'Module', 'info')
     end,
   }):start()
 end
@@ -225,10 +226,10 @@ function M.tidy_module()
     args = { 'mod', 'tidy' },
     on_exit = function(_, retval)
       if retval ~= 0 then
-        vim.notify('Tidy go module FAILED with code' .. retval, 'error')
+        commands.make_notify_message('Tidy go module FAILED with code ' .. retval, 'Module', 'error')
         return
       end
-      vim.notify('Tidy go module SUCCEDED', 'info')
+      commands.make_notify_message('Tidy go module SUCCEDED', 'Module', 'info')
     end,
   }):start()
 end
@@ -243,10 +244,10 @@ function M.install_tools()
       args = { 'install', url },
       on_exit = function(_, retval)
         if retval ~= 0 then
-          vim.notify('Installing ' .. url .. ' FAILED with code ' .. retval, 'error')
+          commands.make_notify_message('Installing ' .. url .. ' FAILED with code ' .. retval, 'Install DevTools', 'error')
           return
         end
-        vim.notify('Installing ' .. url .. ' SUCCEDED', 'info')
+        commands.make_notify_message('Installing ' .. url .. ' SUCCEDED', 'Install DevTools', 'info')
       end,
     }):start()
   end

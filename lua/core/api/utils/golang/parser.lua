@@ -1,4 +1,5 @@
 local parser = require('core.api.utils.parser')
+local commands = require('core.api.commands.system')
 
 local M = {}
 
@@ -16,7 +17,7 @@ function M.get_package_at_cursor_position(row, col)
   local bufnr = vim.api.nvim_get_current_buf()
   local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
   if nodes == nil then
-    vim.notify('Package not found', 'warn')
+    commands.make_notify_message('Package not found', 'Golang Code Parser', 'warn')
   else
     return nodes[#nodes]
   end
@@ -27,7 +28,7 @@ function M.get_struct_at_cursor_position(row, col)
   local bufnr = vim.api.nvim_get_current_buf()
   local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
   if nodes == nil then
-    vim.notify('Struct not found', 'warn')
+    commands.make_notify_message('Struct not found', 'Golang Code Parser', 'warn')
   else
     return nodes[#nodes]
   end
@@ -38,7 +39,7 @@ function M.get_interface_at_cursor_position(row, col)
   local bufnr = vim.api.nvim_get_current_buf()
   local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
   if nodes == nil then
-    vim.notify('Interface not found', 'warn')
+    commands.make_notify_message('Interface not found', 'Golang Code Parser', 'warn')
   else
     return nodes[#nodes]
   end
@@ -49,7 +50,7 @@ function M.get_func_at_cursor_position(row, col)
   local bufnr = vim.api.nvim_get_current_buf()
   local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
   if nodes == nil then
-    vim.notify('Function not found', 'warn')
+    commands.make_notify_message('Function not found', 'Golang Code Parser', 'warn')
   else
     return nodes[#nodes]
   end
