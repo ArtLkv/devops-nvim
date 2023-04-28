@@ -70,3 +70,15 @@ lspconfig.gopls.setup({
   single_file_support = true,
 })
 --------------------------------------------
+-- Bash LSP
+lspconfig.bashls.setup({
+  cmd = { 'bash-language-server', 'start' },
+  filetypes = { 'sh' },
+  root_dir = util.root_pattern(util.find_git_ancestor()),
+  settings = {
+    bashIde = {
+      globPattern = '*@(.sh|.inc|.bash|.command)',
+    },
+  },
+  single_file_support = true,
+})

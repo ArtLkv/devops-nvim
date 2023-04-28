@@ -2,6 +2,7 @@
 
 !!! MY ENGLISH BAD, IF YOU FOUND THE WORST OR UNCORRENT WORD, PARAGRAPH AND ETC. PLEASE, LET ME KNOW !!!
 
+!!! In this moment, my NeoVim configuration can install only manual, but after the first milestone I create a installation bash script !!!
 ## Pre-requirements
 
 * Install dependencies
@@ -44,6 +45,13 @@ tar xzvf nvim-linux64.tar.gz -C ~/devops/nvim
 nvim ~/.config/fish/config.fish # And add to $PATH this var `$HOME/devops/nvim/bin`
 ```
 
+* Install Node JS(as dependency, not LSP support)
+```sh
+omf install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+nvm install --lts
+```
+
 * Python language and python LSP
 ```sh
 # Install PyEnv
@@ -65,6 +73,11 @@ python -m pip install python-lsp-server
 curl -LO "https://go.dev/dl/go1.20.3.linux-amd64.tar.gz" # Change version
 sudo tar -C ~/devops -xvf go1.20.3.linua-amd64.tar.gz
 nvim ~/.config/fish/config.fish # Create GOROOT and GOPATH, add to $PATH this vars `$HOME/devops/go/bin`($GOROOT) and `$HOME/go/bin`($GOPATH)
+```
+
+* Bash LSP
+```sh
+npm i -g bash-language-server
 ```
 
 * (Optional) Lua LSP
@@ -97,7 +110,7 @@ I make the first release, when I complete the mailstone tasks.
     - [x] gotests
     - [x] iferr
     - [x] impl
-- [ ] Bash support
+- [x] Bash support
 - [ ] Git support
     - [ ] Fugitive
     - [ ] GitSigns
@@ -109,8 +122,9 @@ I make the first release, when I complete the mailstone tasks.
 - [x] Language Server Protocols support
     - [x] Python
     - [x] Golang
-    - [x] Lua
 ## Optional
+- [x] Language Server Protocols support
+    - [x] Lua
 - [ ] Add documentation about this configuration
 - [ ] Debugger support
 - [ ] Web support(html, css, js, ts)
