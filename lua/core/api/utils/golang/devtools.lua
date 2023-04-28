@@ -8,11 +8,8 @@ M.urls = {
   gopls = 'golang.org/x/tools/gopls',
   gomodifytags = 'github.com/fatih/gomodifytags',
   gotests = 'github.com/cweill/gotests/...',
-  -- goplay = 'github.com/haya14busa/goplay/cmd/goplay',
   impl = 'github.com/josharian/impl',
-  -- dlv = 'github.com/go-delve/delve/cmd/dlv',
   iferr = 'github.com/koron/iferr',
-  -- staticcheck = 'honnef.co/go/tools/cmd/staticcheck'
 }
 --------------------------------------------
 -- Golang Impl support

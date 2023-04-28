@@ -91,13 +91,12 @@ I make the first release, when I complete the mailstone tasks.
 ## Mailstone
 - [x] API system
 - [x] Different settings for different programming languages
-- [ ] Golang tools support
+- [x] Golang tools support
     - [x] gopls
     - [x] gomodifytags
     - [x] gotests
     - [x] iferr
     - [x] impl
-    - [ ] govulncheck
 - [ ] Bash support
 - [ ] Git support
     - [ ] Fugitive
@@ -122,7 +121,10 @@ I make the first release, when I complete the mailstone tasks.
     - [ ] Add title for notify messages
 - [ ] Change mappings to more comfortable keybindings
 - [ ] Buffer with list of all mappings
-
+- [ ] Optional Golang Tools
+    - [ ] govulncheck
+    - [ ] staticcheck
+    - [ ] goplay(???)
 # Documentation
 
 * If you want read about this configuration. Read [this](./docs/help.md), please.
