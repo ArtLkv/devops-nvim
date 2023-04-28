@@ -9,11 +9,55 @@ M.urls = {
   gomodifytags = 'github.com/fatih/gomodifytags',
   gotests = 'github.com/cweill/gotests/...',
   -- goplay = 'github.com/haya14busa/goplay/cmd/goplay',
-  -- impl = 'github.com/josharian/impl',
+  impl = 'github.com/josharian/impl',
   -- dlv = 'github.com/go-delve/delve/cmd/dlv',
   iferr = 'github.com/koron/iferr',
   -- staticcheck = 'honnef.co/go/tools/cmd/staticcheck'
 }
+--------------------------------------------
+-- Golang Impl support
+function M.impl(fargs)
+  local Job = require('plenary.job')
+
+  local receiver_name, receiver, interface =  '', '', ''
+  if #fargs == 0 then
+    vim.notify('Usage: `GoImpl f *File io.Reader` or `GoImpl io.Reader` ', 'info')
+    return
+  elseif #fargs == 1 then
+    local args = extensions.split(fargs[1])
+    if #args ~= 3 then
+      vim.notify('Usage: `GoImpl f *File io.Reader` or `GoImpl io.Reader`', 'info')
+      return
+    elseif #args == 3 then
+      receiver_name = args[1]
+      receiver = args[2]
+      interface = args[3]
+      receiver = string.format('%s %s', receiver_name, receiver)
+    end
+  end
+  local cmd_args = {
+    '-dir', vim.fn.fnameescape(vim.fn.expand '%:p:h'),
+    receiver,
+    interface,
+  }
+
+  local res_data
+  Job:new({
+    command = 'impl',
+    args = cmd_args,
+    on_exit = function(data, retval)
+      if retval ~= 0 then
+        vim.notify('Command `impl ' .. unpack(cmd_args) .. '` FAILED with code' .. retval, 'error')
+        return
+      end
+      res_data = data:result()
+    end,
+  }):sync()
+
+  local pos = vim.fn.getcurpos()[2]
+  table.insert(res_data, 1, '')
+  vim.fn.append(pos, res_data)
+end
 --------------------------------------------
 -- Golang If-Err support
 function M.ifErr()

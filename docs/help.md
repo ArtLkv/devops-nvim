@@ -13,3 +13,5 @@
 * GoTestAdd - create test to one function/method
 * GoTestsAll - create tests to all functions/methods in the current file
 * GoTestExp - create tests to all functions/methods in the current file with possibility call this tests outside current module
+* GoImpl - create interface implementation. Usage: `GoImpl f *File io.Reader`, where `f *File` is receiver structure and `io.Reader` is interface.
+

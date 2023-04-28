@@ -39,4 +39,9 @@ end, { nargs = 1 })
 vim.api.nvim_create_user_command('GoIfErr', function()
   require('core.api.utils.golang.devtools').ifErr()
 end, {})
+
+vim.api.nvim_create_user_command('GoImpl', function(opts)
+  -- 1: Reciever_Name 2: Reciever 3: Interface
+  require('core.api.utils.golang.devtools').impl(opts.fargs)
+end, { nargs='?' })
 --------------------------------------------

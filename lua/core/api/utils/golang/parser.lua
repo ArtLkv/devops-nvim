@@ -11,12 +11,34 @@ M.querys = {
   func = [[((function_declaration name: (identifier)@function.name) @function.declaration)]],
 }
 
+function M.get_package_at_cursor_position(row, col)
+  local query = M.querys.package
+  local bufnr = vim.api.nvim_get_current_buf()
+  local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
+  if nodes == nil then
+    vim.notify('Package not found', 'warn')
+  else
+    return nodes[#nodes]
+  end
+end
+
 function M.get_struct_at_cursor_position(row, col)
   local query = M.querys.struct_block .. ' '  .. M.querys.em_struct_block
   local bufnr = vim.api.nvim_get_current_buf()
   local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
   if nodes == nil then
     vim.notify('Struct not found', 'warn')
+  else
+    return nodes[#nodes]
+  end
+end
+
+function M.get_interface_at_cursor_position(row, col)
+  local query = M.querys.interface
+  local bufnr = vim.api.nvim_get_current_buf()
+  local nodes = parser.nodes_at_cursor(query, bufnr, row, col)
+  if nodes == nil then
+    vim.notify('Interface not found', 'warn')
   else
     return nodes[#nodes]
   end

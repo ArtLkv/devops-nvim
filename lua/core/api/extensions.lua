@@ -9,4 +9,12 @@ function M.rtrim(value)
   return value:sub(1, len)
 end
 
+function M.split(value)
+  local result = {}
+  for match in string.gmatch(value, '%S+') do
+    table.insert(result, match)
+  end
+  return result
+end
+
 return M
