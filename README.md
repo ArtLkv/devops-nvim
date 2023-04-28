@@ -112,8 +112,9 @@ I make the first release, when I complete the mailstone tasks.
     - [x] impl
 - [x] Bash support
 - [ ] Git support
-    - [ ] Fugitive
     - [ ] GitSigns
+    - [ ] GitHub support
+    - [ ] GitLab support
 - [ ] Docker support
 - [ ] Terraform support
 - [ ] Ansible support
@@ -122,7 +123,9 @@ I make the first release, when I complete the mailstone tasks.
 - [x] Language Server Protocols support
     - [x] Python
     - [x] Golang
-## Optional
+## Other plans
+- [ ] Custom Home NeoVim buffer(startup.nvim plugin)
+- [ ] SQL support and database connection support
 - [x] Language Server Protocols support
     - [x] Lua
 - [ ] Add documentation about this configuration
