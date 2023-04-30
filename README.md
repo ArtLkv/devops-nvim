@@ -80,6 +80,11 @@ nvim ~/.config/fish/config.fish # Create GOROOT and GOPATH, add to $PATH this va
 npm i -g bash-language-server
 ```
 
+* YAML LSP
+```sh
+npm install -g yaml-language-server
+```
+
 * Docker tools
 ```sh
 npm install -g dockerfile-language-server-nodejs
@@ -119,7 +124,7 @@ I make the first release, when I complete the mailstone tasks.
     - [x] iferr
     - [x] impl
 - [x] Bash support
-- [ ] Yaml support
+- [x] Yaml support
 - [ ] Git support
     - [ ] GitSigns
     - [ ] GitHub support
@@ -127,10 +132,13 @@ I make the first release, when I complete the mailstone tasks.
 - [x] Docker support
     - [x] Dockerfile support(LSP)
     - [x] Docker compose support(LSP)
-- [ ] CI/CD
-    - [ ] Azure pipelines
 
 ## Other plans
+- [ ] Build systems support
+    - [ ] Gradle script(groovy)
+    - [ ] Makefile
+- [ ] CI/CD DLS
+    - [ ] Azure pipelines
 - [ ] Ansible support
 - [ ] Terraform support
 - [ ] Protobuf support
@@ -138,7 +146,8 @@ I make the first release, when I complete the mailstone tasks.
 - [ ] SQL support and database connection support
 - [x] Language Server Protocols support
     - [x] Lua
-    - [ ] Html support
+    - [ ] Html
+    - [ ] Powershell(for Windows administration)
 - [ ] Add documentation about this configuration
     - [x] About custom commands
     - [x] Help page
