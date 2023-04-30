@@ -103,6 +103,9 @@ I make the first release, when I complete the mailstone tasks.
 
 ## Mailstone
 - [x] API system
+- [x] Language Server Protocols support
+    - [x] Python
+    - [x] Golang
 - [x] Golang tools support
     - [x] gopls
     - [x] gomodifytags
@@ -110,38 +113,48 @@ I make the first release, when I complete the mailstone tasks.
     - [x] iferr
     - [x] impl
 - [x] Bash support
+- [ ] Yaml support
 - [ ] Git support
     - [ ] GitSigns
     - [ ] GitHub support
     - [ ] GitLab support
 - [ ] Docker support
-- [ ] Terraform support
-- [ ] Ansible support
-- [ ] Yaml support
-- [ ] Protobuf support
-- [x] Language Server Protocols support
-    - [x] Python
-    - [x] Golang
+    - [ ] Dockerfile support(LSP)
+    - [ ] Docker compose support(LSP)
+- [ ] CI/CD
+    - [ ] Azure pipelines
 
 ## Other plans
+- [ ] Ansible support
+- [ ] Terraform support
+- [ ] Protobuf support
 - [ ] Custom Home NeoVim buffer(startup.nvim plugin)
 - [ ] SQL support and database connection support
 - [x] Language Server Protocols support
     - [x] Lua
+    - [ ] Html support
 - [ ] Add documentation about this configuration
-- [ ] Debugger support
-- [ ] Web support(html, css, js, ts)
+    - [x] About custom commands
+    - [x] Help page
+    - [ ] About mappings
+    - [ ] Installation script
+- [ ] Debugger support(`dlv` for golang, `gdb` for python)
 - [x] Comment system
 - [x] Terminal support
-- [ ] Notification system
+- [x] Notification system
     - [x] Modify default neovim notification system
-    - [ ] Add title for notify messages
+    - [x] Add title for notify messages
 - [ ] Change mappings to more comfortable keybindings
 - [ ] Buffer with list of all mappings
+
+## For consideration (May not appear)
+- [ ] Css support
+- [ ] JavaScript and Typescripts support
 - [ ] Optional Golang Tools
     - [ ] govulncheck
     - [ ] staticcheck
-    - [ ] goplay(???)
+    - [ ] goplay
+
 # Documentation
 
 * If you want read about this configuration. Read [this](./docs/help.md), please.
