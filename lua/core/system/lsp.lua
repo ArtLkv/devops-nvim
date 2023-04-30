@@ -49,6 +49,7 @@ lspconfig.lua_ls.setup({
 ---------------------------------------------
 -- Python LSP
 lspconfig.pylsp.setup{
+  on_attach = on_attach,
   settings = {
     pylsp = {
       plugins = {
@@ -72,6 +73,7 @@ lspconfig.gopls.setup({
 --------------------------------------------
 -- Bash LSP
 lspconfig.bashls.setup({
+  on_attach = on_attach,
   cmd = { 'bash-language-server', 'start' },
   filetypes = { 'sh' },
   root_dir = util.root_pattern(util.find_git_ancestor()),
@@ -82,3 +84,21 @@ lspconfig.bashls.setup({
   },
   single_file_support = true,
 })
+--------------------------------------------
+-- Docker LSP
+lspconfig.dockerls.setup({
+  on_attach = on_attach,
+  cmd = { 'docker-langserver', '--stdio' },
+  filetypes = { 'dockerfile' },
+  root_dir = util.root_pattern('Dockerfile'),
+  single_file_support = true,
+})
+
+lspconfig.docker_compose_language_service.setup({
+  on_attach = on_attach,
+  cmd = { 'docker-compose-langserver', '--stdio' },
+  filetypes = { 'yaml' },
+  root_dir = util.root_pattern('docker-compose.yaml'),
+  single_file_support = true,
+})
+--------------------------------------------

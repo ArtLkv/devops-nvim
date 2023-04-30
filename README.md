@@ -80,6 +80,12 @@ nvim ~/.config/fish/config.fish # Create GOROOT and GOPATH, add to $PATH this va
 npm i -g bash-language-server
 ```
 
+* Docker tools
+```sh
+npm install -g dockerfile-language-server-nodejs
+npm install -g @microsoft/compose-language-service
+```
+
 * (Optional) Lua LSP
 ```sh
 cd ~/devops
@@ -118,9 +124,9 @@ I make the first release, when I complete the mailstone tasks.
     - [ ] GitSigns
     - [ ] GitHub support
     - [ ] GitLab support
-- [ ] Docker support
-    - [ ] Dockerfile support(LSP)
-    - [ ] Docker compose support(LSP)
+- [x] Docker support
+    - [x] Dockerfile support(LSP)
+    - [x] Docker compose support(LSP)
 - [ ] CI/CD
     - [ ] Azure pipelines
 
