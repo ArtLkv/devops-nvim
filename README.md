@@ -103,7 +103,6 @@ I make the first release, when I complete the mailstone tasks.
 
 ## Mailstone
 - [x] API system
-- [x] Different settings for different programming languages
 - [x] Golang tools support
     - [x] gopls
     - [x] gomodifytags
@@ -123,6 +122,7 @@ I make the first release, when I complete the mailstone tasks.
 - [x] Language Server Protocols support
     - [x] Python
     - [x] Golang
+
 ## Other plans
 - [ ] Custom Home NeoVim buffer(startup.nvim plugin)
 - [ ] SQL support and database connection support
