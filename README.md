@@ -2,7 +2,6 @@
 
 !!! MY ENGLISH BAD, IF YOU FOUND THE WORST OR UNCORRECT WORD, PARAGRAPH AND ETC. PLEASE, LET ME KNOW !!!
 
-!!! In this moment, my NeoVim configuration can install only manual, but after the first milestone I create a installation bash script !!!
 ## Pre-requirements
 
 * Install dependencies
@@ -71,7 +70,7 @@ python -m pip install python-lsp-server
 * Golang language
 ```sh
 curl -LO "https://go.dev/dl/go1.20.3.linux-amd64.tar.gz" # Change version
-sudo tar -C ~/devops -xvf go1.20.3.linua-amd64.tar.gz
+sudo tar -C ~/devops -xvf go1.20.3.linux-amd64.tar.gz
 nvim ~/.config/fish/config.fish # Create GOROOT and GOPATH, add to $PATH this vars `$HOME/devops/go/bin`($GOROOT) and `$HOME/go/bin`($GOPATH)
 ```
 
@@ -130,7 +129,7 @@ I make the first release, when I complete the mailstone tasks.
 - [x] Docker support
     - [x] Dockerfile support(LSP)
     - [x] Docker compose support(LSP)
-
+- [  ] Make installation script
 ## Other plans
 - [ ] Markdown support
     - [ ] Markdown LSP
