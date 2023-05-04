@@ -125,15 +125,16 @@ I make the first release, when I complete the mailstone tasks.
     - [x] impl
 - [x] Bash support
 - [x] Yaml support
-- [ ] Git support
-    - [ ] GitSigns
-    - [ ] GitHub support
-    - [ ] GitLab support
+- [x] Git support
+    - [x] GitSigns
 - [x] Docker support
     - [x] Dockerfile support(LSP)
     - [x] Docker compose support(LSP)
 
 ## Other plans
+- [ ] Markdown support
+    - [ ] Markdown LSP
+    - [ ] Markdown Preview
 - [ ] Build systems support
     - [ ] Gradle script(groovy)
     - [ ] Makefile

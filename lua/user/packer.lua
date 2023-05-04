@@ -42,7 +42,9 @@ return require('packer').startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'rafamadriz/friendly-snippets' }
   ---------------------------------------------------
-
+  -- DevOps plugins
+  use { 'lewis6991/gitsigns.nvim' }
+  ---------------------------------------------------
   if PB then
     require('packer').sync()
   end
