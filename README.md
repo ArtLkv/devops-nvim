@@ -1,6 +1,6 @@
 # NeoVim configuration for DevOps
 
-!!! MY ENGLISH BAD, IF YOU FOUND THE WORST OR UNCORRENT WORD, PARAGRAPH AND ETC. PLEASE, LET ME KNOW !!!
+!!! MY ENGLISH BAD, IF YOU FOUND THE WORST OR UNCORRECT WORD, PARAGRAPH AND ETC. PLEASE, LET ME KNOW !!!
 
 !!! In this moment, my NeoVim configuration can install only manual, but after the first milestone I create a installation bash script !!!
 ## Pre-requirements
@@ -8,7 +8,7 @@
 * Install dependencies
 ```sh
 sudo apt update
-sudo install fzf ripgrep ninja-build unzip
+sudo install fzf ripgrep ninja-build unzip zip
 sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ```
 
